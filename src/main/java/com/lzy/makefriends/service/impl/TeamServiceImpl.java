@@ -7,6 +7,8 @@ import com.lzy.makefriends.model.domain.Team;
 import com.lzy.makefriends.service.TeamService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author lizey
 * @description 针对表【team(队伍)】的数据库操作Service实现
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Service;
 public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team>
     implements TeamService {
 
+    @Resource
+    private TeamService teamService;
 }
 
 

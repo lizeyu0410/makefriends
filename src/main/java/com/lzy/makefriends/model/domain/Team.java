@@ -1,6 +1,7 @@
 package com.lzy.makefriends.model.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.lzy.makefriends.common.PageRequest;
 import lombok.Data;
 
 import java.io.Serializable;

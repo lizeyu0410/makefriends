@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 队伍查询封装类
@@ -22,12 +23,17 @@ public class TeamQuery extends PageRequest {
     private String name;
 
     /**
+     * id 列表
+     */
+    private List<Long> idList;
+
+    /**
      * 描述
      */
     private String description;
 
     /**
-     * 搜索关键字
+     * 搜索关键词（同时对队伍名称和描述搜索）
      */
     private String searchText;
 

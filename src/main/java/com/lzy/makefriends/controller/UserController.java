@@ -27,7 +27,7 @@ import static com.lzy.makefriends.constant.UserConstant.USER_LOGIN_STATE;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = { "http://localhost:5173" })
+@CrossOrigin(origins = { "http://localhost:3000" })
 @Slf4j
 public class UserController {
     @Resource

@@ -63,7 +63,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return -1;
         }
         // 密码不小于8位
-        if (userPassword.length() < 8){
+        if (userPassword.length() < 4){
             return -1;
         }
         // 编号不大于5位
@@ -127,7 +127,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return null;
         }
         // 密码不小于8位
-        if (userPassword.length() < 8){
+        if (userPassword.length() < 4){
             return null;
         }
         // 账户不包含特殊字符

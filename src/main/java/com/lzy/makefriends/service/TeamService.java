@@ -3,6 +3,7 @@ package com.lzy.makefriends.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lzy.makefriends.model.domain.Team;
+import com.lzy.makefriends.model.domain.User;
 
 import javax.annotation.Resource;
 
@@ -12,4 +13,12 @@ import javax.annotation.Resource;
 * @createDate 2024-06-02 08:10:37
 */
 public interface TeamService extends IService<Team> {
+    /**
+     * 创建队伍
+     *
+     * @param team
+     * @param loginUser
+     * @return
+     */
+    long addTeam(Team team, User loginUser);
 }

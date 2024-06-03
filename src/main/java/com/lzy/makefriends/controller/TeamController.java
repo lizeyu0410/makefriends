@@ -7,12 +7,16 @@ import com.lzy.makefriends.common.ErrorCode;
 import com.lzy.makefriends.common.ResultUtils;
 import com.lzy.makefriends.exception.BusinessException;
 import com.lzy.makefriends.model.domain.Team;
+import com.lzy.makefriends.model.domain.User;
+import com.lzy.makefriends.model.domain.request.TeamAddRequest;
 import com.lzy.makefriends.model.dto.TeamQuery;
 import com.lzy.makefriends.service.TeamService;
+import com.lzy.makefriends.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -22,21 +26,25 @@ public class TeamController {
     @Resource
     private TeamService teamService;
 
+    @Resource
+    private UserService userService;
+
     /**
      * 创建队伍
-     * @param team
+     * @param teamAddRequest
+     * @param request
      * @return
      */
     @PostMapping("add")
-    public BaseResponse<Long> addTeam(@RequestBody Team team){
-        if (team == null){
+    public BaseResponse<Long> addTeam(@RequestBody TeamAddRequest teamAddRequest, HttpServletRequest request){
+        if (teamAddRequest == null){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        boolean result = teamService.save(team);
-        if (!result){
-            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "插入失败");
-        }
-        return ResultUtils.success(team.getId());
+        User loginUser = userService.getLoginUser(request);
+        Team team = new Team();
+        BeanUtils.copyProperties(teamAddRequest, team);
+        long teamId = teamService.addTeam(team, loginUser);
+        return ResultUtils.success(teamId);
     }
 
     /**
@@ -121,7 +129,7 @@ public class TeamController {
         }
         Team team = new Team();
         // 将teamQuery中的属性复制到team中
-        BeanUtils.copyProperties(team, teamQuery);
+        BeanUtils.copyProperties(teamQuery, team);
         QueryWrapper<Team> queryWrapper = new QueryWrapper<>(team);
         Page<Team> teamPage = new Page<>(teamQuery.getPageNum(), teamQuery.getPageSize());
         Page<Team> resulPage = teamService.page(teamPage, queryWrapper);

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2521e-5e0c-4f41-9534-34048e2e23b7" name="Changes" comment="用户功能模块">
-      <change afterPath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/common/PageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/controller/TeamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/dto/TeamQuery.java" afterDir="false" />
+    <list default="true" id="72a2521e-5e0c-4f41-9534-34048e2e23b7" name="Changes" comment="队伍crud，分页查询，队伍状态枚举">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/domain/request/TeamAddRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/domain/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/controller/TeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/TeamService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/TeamServiceImpl.java" afterDir="false" />
     </list>
@@ -76,7 +73,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "last_opened_file_path": "F:/project/makefriends/makefriends-backend",
+    "last_opened_file_path": "F:/项目/匹配/代码/yupao-backend-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,11 +109,11 @@
       <recent name="com.lzy.usercenter.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lzy.makefriends.model.enums" />
       <recent name="com.lzy.makefriends.model.dto" />
       <recent name="com.lzy.makefriends.model.domain" />
       <recent name="com.lzy.makefriends.service" />
       <recent name="com.lzy.makefriends.config" />
-      <recent name="com.lzy.makefriends.once" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -126,7 +123,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RedissonTest.testWatchDog">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="InsertUsersTest.doInsertUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="makefriends-backend" />
       <extension name="coverage">
@@ -244,7 +241,8 @@
       <workItem from="1717196804658" duration="5128000" />
       <workItem from="1717206940283" duration="1864000" />
       <workItem from="1717284941803" duration="1758000" />
-      <workItem from="1717286951071" duration="9344000" />
+      <workItem from="1717286951071" duration="10171000" />
+      <workItem from="1717386793870" duration="4484000" />
     </task>
     <task id="LOCAL-00001" summary="用户功能模块">
       <option name="closed" value="true" />
@@ -254,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717293141203</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="队伍crud，分页查询，队伍状态枚举">
+      <option name="closed" value="true" />
+      <created>1717318562125</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717318562125</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +291,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="用户功能模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户功能模块" />
+    <MESSAGE value="队伍crud，分页查询，队伍状态枚举" />
+    <option name="LAST_COMMIT_MESSAGE" value="队伍crud，分页查询，队伍状态枚举" />
   </component>
 </project>

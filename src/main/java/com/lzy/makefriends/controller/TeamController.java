@@ -9,7 +9,10 @@ import com.lzy.makefriends.exception.BusinessException;
 import com.lzy.makefriends.model.domain.Team;
 import com.lzy.makefriends.model.domain.User;
 import com.lzy.makefriends.model.domain.request.TeamAddRequest;
+import com.lzy.makefriends.model.domain.request.TeamJoinRequest;
+import com.lzy.makefriends.model.domain.request.TeamUpdateRequest;
 import com.lzy.makefriends.model.dto.TeamQuery;
+import com.lzy.makefriends.model.vo.TeamUserVO;
 import com.lzy.makefriends.service.TeamService;
 import com.lzy.makefriends.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -20,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("team")
+@RequestMapping("/team")
 @CrossOrigin
 public class TeamController {
     @Resource
@@ -35,7 +38,7 @@ public class TeamController {
      * @param request
      * @return
      */
-    @PostMapping("add")
+    @PostMapping("/add")
     public BaseResponse<Long> addTeam(@RequestBody TeamAddRequest teamAddRequest, HttpServletRequest request){
         if (teamAddRequest == null){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -52,7 +55,7 @@ public class TeamController {
      * @param id
      * @return
      */
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public BaseResponse<Boolean> deleteTeam(Long id){
         if (id <= 0){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -66,19 +69,21 @@ public class TeamController {
 
     /**
      * 修改队伍
-     * @param team
+     * @param teamUpdateRequest
+     * @param request
      * @return
      */
-    @PostMapping("update")
-    public BaseResponse<Team> updateTeam(@RequestBody Team team){
-        if (team == null){
+    @PostMapping("/update")
+    public BaseResponse<Boolean> updateTeam(@RequestBody TeamUpdateRequest teamUpdateRequest, HttpServletRequest request){
+        if (teamUpdateRequest == null){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        boolean result = teamService.updateById(team);
+        User loginUser = userService.getLoginUser(request);
+        boolean result = teamService.updateTeam(teamUpdateRequest, loginUser);
         if (!result){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "修改失败");
         }
-        return ResultUtils.success(team);
+        return ResultUtils.success(true);
     }
 
     /**
@@ -86,8 +91,8 @@ public class TeamController {
      * @param id
      * @return
      */
-    @PostMapping("get")
-    public BaseResponse<Team> updateTeam(Long id){
+    @PostMapping("/get")
+    public BaseResponse<Team> getTeamById(Long id){
         if (id <= 0){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -104,16 +109,13 @@ public class TeamController {
      * @param teamQuery
      * @return
      */
-    @PostMapping("list")
-    public BaseResponse<List<Team>> listTeam(TeamQuery teamQuery){
+    @PostMapping("/list")
+    public BaseResponse<List<TeamUserVO>> listTeam(TeamQuery teamQuery, HttpServletRequest request){
         if (teamQuery == null){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        Team team = new Team();
-        // 将teamQuery中的属性复制到team中
-        BeanUtils.copyProperties(team, teamQuery);
-        QueryWrapper<Team> queryWrapper = new QueryWrapper<>(team);
-        List<Team> teamList = teamService.list(queryWrapper);
+        boolean isAdmin = userService.isAdmin(request);
+        List<TeamUserVO> teamList = teamService.listTeams(teamQuery, isAdmin);
         return ResultUtils.success(teamList);
     }
 
@@ -122,7 +124,7 @@ public class TeamController {
      * @param teamQuery
      * @return
      */
-    @PostMapping("list/page")
+    @PostMapping("/list/page")
     public BaseResponse<Page<Team>> listTeamByPage(TeamQuery teamQuery){
         if (teamQuery == null){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
@@ -136,4 +138,13 @@ public class TeamController {
         return ResultUtils.success(resulPage);
     }
 
+    @PostMapping("/join")
+    public BaseResponse<Boolean> joinTeam(@RequestBody TeamJoinRequest teamJoinRequest, HttpServletRequest request){
+        if (teamJoinRequest == null){
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User loginUser = userService.getLoginUser(request);
+        boolean result = teamService.joinTeam(teamJoinRequest, loginUser);
+        return ResultUtils.success(result);
+    }
 }

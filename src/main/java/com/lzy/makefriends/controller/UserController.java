@@ -26,7 +26,7 @@ import static com.lzy.makefriends.constant.UserConstant.ADMIN_ROLE;
 import static com.lzy.makefriends.constant.UserConstant.USER_LOGIN_STATE;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 @CrossOrigin(origins = { "http://localhost:5173" })
 @Slf4j
 public class UserController {
@@ -41,7 +41,7 @@ public class UserController {
      * @param userRegisterRequest
      * @return
      */
-    @PostMapping("register")
+    @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest){
         if (userRegisterRequest == null){
             return null;
@@ -64,7 +64,7 @@ public class UserController {
      * @param request
      * @return
      */
-    @PostMapping("login")
+    @PostMapping("/login")
     public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request){
         if (userLoginRequest == null){
             return null;
@@ -84,7 +84,7 @@ public class UserController {
      * @param request
      * @return
      */
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public BaseResponse<Integer> userLogout(HttpServletRequest request){
         if (request == null){
             return null;
@@ -99,7 +99,7 @@ public class UserController {
      * @param username
      * @return
      */
-    @GetMapping("search")
+    @GetMapping("/search")
     public BaseResponse<List<User>> searchUsers(String username, HttpServletRequest request){
         if (!userService.isAdmin(request)) {
             return null;
@@ -120,7 +120,7 @@ public class UserController {
      * @param request
      * @return
      */
-    @GetMapping("recommend")
+    @GetMapping("/recommend")
     public BaseResponse<Page<User>> recommendUsers(long pageSize, long pageNum, HttpServletRequest request){
         User loginUser = userService.getLoginUser(request);
         // 设置缓存的key，要区分每个用户
@@ -149,7 +149,7 @@ public class UserController {
      * @param id 用户id
      * @return
      */
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public BaseResponse<Boolean> deleteUser(@RequestBody Long id, HttpServletRequest request){
         if (!userService.isAdmin(request)) {
             return null;
@@ -166,7 +166,7 @@ public class UserController {
      * 更新用户信息
      * @return
      */
-    @PostMapping("update")
+    @PostMapping("/update")
     public BaseResponse<Integer> updateUser(@RequestBody User user, HttpServletRequest request){
         // 校验参数是否为空
         if (user == null){
@@ -187,7 +187,7 @@ public class UserController {
      * @param request
      * @return
      */
-    @GetMapping("current")
+    @GetMapping("/current")
     public BaseResponse<User> getCurrentUser(HttpServletRequest request) {
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;

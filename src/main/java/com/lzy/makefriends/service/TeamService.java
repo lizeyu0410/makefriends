@@ -4,8 +4,12 @@ package com.lzy.makefriends.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lzy.makefriends.model.domain.Team;
 import com.lzy.makefriends.model.domain.User;
+import com.lzy.makefriends.model.domain.request.TeamJoinRequest;
+import com.lzy.makefriends.model.domain.request.TeamUpdateRequest;
+import com.lzy.makefriends.model.dto.TeamQuery;
+import com.lzy.makefriends.model.vo.TeamUserVO;
 
-import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author lizey
@@ -21,4 +25,28 @@ public interface TeamService extends IService<Team> {
      * @return
      */
     long addTeam(Team team, User loginUser);
+
+    /**
+     * 搜索队伍
+     *
+     * @param teamQuery
+     * @param isAdmin
+     * @return
+     */
+    List<TeamUserVO> listTeams(TeamQuery teamQuery, boolean isAdmin);
+
+    /**
+     * 更新队伍
+     * @param teamUpdateRequest
+     * @param loginuser
+     * @return
+     */
+    boolean updateTeam(TeamUpdateRequest teamUpdateRequest, User loginuser);
+
+    /**
+     * 加入队伍
+     * @param teamJoinRequest
+     * @return
+     */
+    boolean joinTeam(TeamJoinRequest teamJoinRequest, User loginUser);
 }

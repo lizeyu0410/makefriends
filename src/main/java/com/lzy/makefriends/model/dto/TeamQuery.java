@@ -1,13 +1,9 @@
 package com.lzy.makefriends.model.dto;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.lzy.makefriends.common.PageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
-import java.util.List;
-
 
 /**
  * 队伍查询封装类
@@ -29,6 +25,11 @@ public class TeamQuery extends PageRequest {
      * 描述
      */
     private String description;
+
+    /**
+     * 搜索关键字
+     */
+    private String searchText;
 
     /**
      * 最大人数

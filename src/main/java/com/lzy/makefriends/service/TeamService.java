@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lzy.makefriends.model.domain.Team;
 import com.lzy.makefriends.model.domain.User;
 import com.lzy.makefriends.model.domain.request.TeamJoinRequest;
+import com.lzy.makefriends.model.domain.request.TeamQuitRequest;
 import com.lzy.makefriends.model.domain.request.TeamUpdateRequest;
 import com.lzy.makefriends.model.dto.TeamQuery;
 import com.lzy.makefriends.model.vo.TeamUserVO;
@@ -49,4 +50,21 @@ public interface TeamService extends IService<Team> {
      * @return
      */
     boolean joinTeam(TeamJoinRequest teamJoinRequest, User loginUser);
+
+    /**
+     * 退出队伍
+     * @param teamQuitRequest
+     * @param loginUser
+     * @return
+     */
+    boolean quitTeam(TeamQuitRequest teamQuitRequest, User loginUser);
+
+    /**
+     * 删除（解散）队伍
+     *
+     * @param id
+     * @param loginUser
+     * @return
+     */
+    boolean deleteTeam(long id, User loginUser);
 }

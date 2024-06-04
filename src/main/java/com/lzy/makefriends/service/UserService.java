@@ -82,4 +82,12 @@ public interface UserService extends IService<User> {
      * @return
      */
     boolean isAdmin(User loginUser);
+
+    /**
+     * 获取最匹配用户
+     * @param num
+     * @param user
+     * @return
+     */
+    Object matchUsers(long num, User loginUser);
 }

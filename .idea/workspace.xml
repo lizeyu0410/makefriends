@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a2521e-5e0c-4f41-9534-34048e2e23b7" name="Changes" comment="add 匹配相似用户，编辑距离算法">
+    <list default="true" id="72a2521e-5e0c-4f41-9534-34048e2e23b7" name="Changes" comment="add 匹配相似用户，编辑距离算法（修改错误）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/controller/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/vo/TeamUserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/model/vo/TeamUserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/TeamServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzy/makefriends/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +248,7 @@
       <workItem from="1717286951071" duration="10171000" />
       <workItem from="1717386793870" duration="21107000" />
       <workItem from="1717420207367" duration="39000" />
-      <workItem from="1717454647223" duration="4429000" />
+      <workItem from="1717454647223" duration="9303000" />
     </task>
     <task id="LOCAL-00001" summary="用户功能模块">
       <option name="closed" value="true" />
@@ -301,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717459471126</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add 匹配相似用户，编辑距离算法（修改错误）">
+      <option name="closed" value="true" />
+      <created>1717462040604</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717462040604</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +351,7 @@
     <MESSAGE value="add 退出队伍功能" />
     <MESSAGE value="add 获取创建的队伍&#10;add 获取加入的队伍&#10;update 根据idList查询队伍" />
     <MESSAGE value="add 匹配相似用户，编辑距离算法" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 匹配相似用户，编辑距离算法" />
+    <MESSAGE value="add 匹配相似用户，编辑距离算法（修改错误）" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 匹配相似用户，编辑距离算法（修改错误）" />
   </component>
 </project>
